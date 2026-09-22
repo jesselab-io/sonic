@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071d2c">
+  <title>Sonic — Velocity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Sonic Velocity game. Move with A and D, jump with Space, dash attack with X, and boost with Shift."></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Sonic Velocity home"><span class="brand-mark">S</span><span>SONIC<span class="brand-sub">VELOCITY</span></span></a>
+      <div class="zone"><i></i><span id="zone-name">EMERALD COAST <b>/ ACT 01 OF 03</b></span></div>
+      <div class="top-actions"><button id="sound" aria-label="Enable sound" title="Toggle sound">♪ <span>SOUND OFF</span></button><button id="pause" aria-label="Pause game" title="Pause (Escape)">Ⅱ</button></div>
+    </header>
+
+    <section id="welcome" class="screen welcome">
+      <div class="intro-copy">
+        <div class="eyebrow"><span></span> THE COAST IS CALLING</div>
+        <h1>BREAK THE<br><em>SOUND</em><br>BARRIER<span class="period">.</span></h1>
+        <p>A blue blur. An open horizon. One very angry doctor.<br>Find your speed — and give Eggman a reason to run.</p>
+        <button id="start" class="primary">LET’S RUN <span>↗</span></button>
+        <div class="intro-meta"><span><i></i> PLAY IN YOUR BROWSER</span><span>03 ZONES · 03 HEROES · 01 BIG BAD</span></div>
+      </div>
+      <div class="scene-label"><span>JUST YOU. THE COAST. THE SPEED.</span><b>GO BEYOND <span>↗</span></b></div>
+    </section>
+
+    <section id="hud" class="hidden" aria-label="Game stats">
+      <div class="stat-stack"><div class="rings"><span class="ring-icon"></span><div><label>RINGS</label><strong id="ring-count">000</strong></div></div><div class="minor-stats"><span>TIME <b id="time">0:00.00</b></span><span>LIVES <b id="lives">● ● ●</b></span></div></div>
+      <div class="speedometer"><div><strong id="speed">0</strong><span>KM/H</span></div><label>SUPER SPEED <b id="boost-label">SHIFT</b></label><div class="energy-track"><i id="energy"></i></div></div>
+      <div id="boss-hud" class="hidden"><div><span>DR. EGGMAN</span><b id="boss-phase">PHASE 01</b></div><div class="boss-track"><i id="boss-health"></i></div><p id="boss-hint">Dodge the missiles. Wait for an opening.</p></div>
+      <div id="toast" role="status"></div>
+      <div class="route"><span id="route-name">ACT 1 / 3</span><div><i id="route-progress"></i><b id="route-dot"></b></div><span id="route-goal">EXIT</span></div>
+      <div id="mission">POWER CELLS <b id="cell-count">0 / 3</b><span id="cell-hint">Collect all three to unlock the exit</span></div>
+    </section>
+    <section id="character-picker" aria-label="Choose character">
+      <div class="character-buttons"><button data-character="sonic" aria-pressed="true"><kbd>1</kbd> SONIC</button><button data-character="tails" aria-pressed="false"><kbd>2</kbd> TAILS</button><button data-character="knuckles" aria-pressed="false"><kbd>3</kbd> KNUCKLES</button></div>
+      <p id="ability-hint">SONIC · Fastest running and boost</p>
+    </section>
+    <section id="level-screen" class="screen modal hidden"><div class="modal-card"><div class="eyebrow" id="level-kicker">ACT 01 COMPLETE</div><h2 id="level-title">NEXT STOP.<br><em>SKY RUINS.</em></h2><p id="level-copy"></p><button id="next-level" class="primary">NEXT LEVEL <span>↗</span></button></div></section>
+
+    <section id="pause-screen" class="screen modal hidden"><div class="modal-card"><div class="eyebrow">TAKE A BREATHER</div><h2>HOLD THAT<br><em>MOMENTUM.</em></h2><p>Eggman can wait. Your next great run is right here.</p><button id="resume" class="primary">KEEP RUNNING <span>↗</span></button><button id="restart" class="text-button">RESTART RUN</button></div></section>
+    <section id="end-screen" class="screen modal hidden"><div class="modal-card"><div class="eyebrow" id="end-kicker">COAST CLEAR</div><h2 id="end-title">TOO FAST.<br><em>TOO GOOD.</em></h2><p id="end-copy"></p><button id="retry" class="primary">RUN IT AGAIN <span>↗</span></button></div></section>
+
+    <footer class="controls"><div><kbd>A</kbd><kbd>D</kbd><span>MOVE</span></div><div><kbd>SPACE</kbd><span>JUMP ×2</span></div><div><kbd>X</kbd><span>DASH ATTACK</span></div><div><kbd>SHIFT</kbd><span>BOOST</span></div><span class="footer-note">SPEED IS A STATE OF MIND.</span></footer>
+    <div id="touch-controls"><div><button data-key="ArrowLeft" aria-label="Move left">◀</button><button data-key="ArrowRight" aria-label="Move right">▶</button></div><div><button data-key="ShiftLeft" aria-label="Boost">⚡</button><button data-key="KeyX" aria-label="Dash attack">DASH</button><button data-key="Space" aria-label="Jump">↑</button></div></div>
+    <div class="fan-note">AN UNOFFICIAL FAN GAME · BUILT FOR THE LOVE OF SPEED</div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
